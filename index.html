@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-mode="simple">
+  <header class="titlebar">
+    <nav class="tabs" role="tablist" aria-label="Calculator mode">
+      <button class="tab" data-mode="simple" role="tab">Simple</button>
+      <button class="tab" data-mode="scientific" role="tab">Scientific</button>
+      <button class="tab" data-mode="graphing" role="tab">Graphing</button>
+    </nav>
+    <button id="themeBtn" class="theme-btn" type="button">Light mode</button>
+  </header>
+
+  <div class="workspace">
+    <div class="left">
+      <section id="display" class="display">
+        <div id="graphView" class="graph-view">
+          <canvas id="graphCanvas"></canvas>
+          <div id="graphLegend" class="graph-legend"></div>
+        </div>
+        <div id="calcView" class="calc-view">
+          <div id="exprText" class="expr"></div>
+          <div id="resultPreview" class="preview"></div>
+          <div id="errorLine" class="error"></div>
+        </div>
+      </section>
+      <div id="splitH" class="split split-h" title="Drag to resize"></div>
+      <section id="keypad" class="keypad"></section>
+    </div>
+
+    <div id="splitV" class="split split-v" title="Drag to resize"></div>
+
+    <aside id="side" class="side">
+      <section id="historyPanel" class="panel history">
+        <div class="panel-head">
+          <h2>History</h2>
+          <button id="clearHistory" class="chip" type="button">Erase</button>
+        </div>
+        <div id="historyList" class="history-list"></div>
+      </section>
+      <div id="splitS" class="split split-s" title="Drag to resize"></div>
+      <section class="panel notes">
+        <div class="panel-head">
+          <h2>Math Notes</h2>
+          <div class="tools">
+            <button id="eraseNotes" class="icon-btn" type="button" title="Erase note">⌫</button>
+          </div>
+        </div>
+        <textarea id="notes" placeholder="Take handwritten-style digital notes on expressions."></textarea>
+      </section>
+    </aside>
+  </div>
+
+  <!-- math.js (pinned build from unpkg) -->
+  <script src="https://unpkg.com/mathjs@13.2.3/lib/browser/math.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
